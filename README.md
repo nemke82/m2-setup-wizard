@@ -7,65 +7,50 @@ The idea behind this module/extension is to fix issue with missing Web Wizard bu
 
 While you're free to manually install the webwizard extension (and the use of the app/code folder structure supports this), we recommend using Magento's PHP composer integration to install the extension (https://getcomposer.org/). All Magento 2 systems have a composer.json file, and this file is how developers and Magento Marketplace users get new packages in and out of their system.
 
-Installing the extension is a X step process
-
-Add this GitHub repository to your project as a composer repository
-Add the Neman/webwizard composer package to your project
-Update your project's composer dependencies
-Install the downloaded package via Magento's standard command line tool
+Installing the extension is a X step process:
+1) Add this GitHub repository to your project as a composer repository
+2) Add the Neman/Webwizard composer package to your project
+3) Update your project's composer dependencies
+4) Install the downloaded package via Magento's standard command line tool
 
 --Quick Start--
-
 After backing up your composer.json file
-
+```
 cp composer.json composer.json.bak
+```
 
-Run
+Then Run <BR>
 composer config repositories.neman vcs https://github.com/nemke82/m2-setup-wizard <BR>
 composer require neman/webwizard --no-update <BR>
 composer update neman/webwizard <BR>
-php bin/magento module:enable Neman_webwizard <BR>
-php bin/magento setup:upgrade <BR>
 
-After running the above, the Neman/Webwizard extension will be installed, ready for configuration.
+Note: Now if you see message "Could not find package neman/webwizard at any version for your minimum-stability (alpha). Check the package spelling or your minimum-stability", edit composer.json file and change:
 
---Composer Details--
+FROM:
+"minimum-stability": "alpha",
 
-The first composer command
-composer config repositories.foo vcs https://github.com/nemke82/m2-setup-wizard <BR>
+TO:
+"minimum-stability": "dev",
 
-Add this GitHub repository as a composer repository to your composer.json file:
-#File: composer.json
-```
-"repositories": {
-    "neman": {
-        "type": "vcs",
-        "url": "https://github.com/nemke82/m2-setup-wizard"
-    }
-},
-"require": {
-    //...
-    "neman/webwizard": "^1.0"
-},
-```
+Does not happen often, but this is a fix.
 
-This tells composer it should look for additional packages in this GitHub repository.
+--FINAL STEPS--
+1) composer require neman/webwizard <BR>
+2) php bin/magento module:enable Neman_Webwizard <BR>
+3) php bin/magento setup:upgrade <BR>
 
-The second command: <BR>
-composer require neman/webwizard --no-update <BR>
-add the latest stable version of ometria/magento2 to your composer.json file's require section.
+After running the above, the Neman/Webwizard extension will be installed, and ready for configuration.
 
-The third command:<BR>
+You may at any time run the following command to update module/extension version: <BR>
 composer update neman/webwizard <BR>
 
-Updates any composer packages that match the string neman/webwizard. This is what triggers the download of the Neman/Webwizard extension source code to app/code/neman directory.
+Updates any composer packages that match the string neman/webwizard. This is what triggers the download of the Neman/Webwizard extension source code to app/code/Neman directory.
 
 Things after module is enabled needs to be done:
-1) php bin/magento setup:upgrade
-2) php bin/magento cache:clean
-3) php bin/magento cache:flush
-4) rm -rf var/di/* var/generation/* var/cache/* var/log/* var/page_cache/*
-5) php bin/magento setup:static-content:deploy
+1) php bin/magento cache:clean
+2) php bin/magento cache:flush
+3) rm -rf var/di/* var/generation/* var/cache/* var/log/* var/page_cache/*
+4) php bin/magento setup:static-content:deploy
 
 NOTE: YOU NEED TO SYMLINK setup/ and update/ folder from folder where your script is settled to pub/ folder, you can follow my example here with full paths: <BR>
 ln -s /home/nemanja/public_html/setup /home/nemanja/public_html/pub/ <BR>
