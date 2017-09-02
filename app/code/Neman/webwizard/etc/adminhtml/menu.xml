@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-    <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-        <menu>
-
-          <add id="Neman_webwizard::greetings" title="Custom Tools" translate="title" module="Neman_webwizard" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Neman_webwizard" resource="Neman_webwizard::greetings"/>
-          <add id="Neman_webwizard::helloworld" title="Web Setup Wizard - Nginx" translate="title" module="Neman_webwizard" parent="Neman_webwizard::greetings" sortOrder="10" action="adminhtml/backendapp/redirect/app/setup" resource="Magento_Backend::setup_wizard"/>
-        </menu>
-    </config>
