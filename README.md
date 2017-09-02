@@ -1,11 +1,11 @@
 # m2-setup-wizard
 Magento 2 Extension for adding Web Setup Wizard
 
-The idea behind this module/extension is to fix issue with missing Web Wizard button when static files are served from pub/ folder and when Nginx as a web server is used.
+The idea behind this module/extension is to fix issue with missing Web Wizard button when static files are served from pub/ folder and when Nginx as a web server is used. After installation button is located at the CONTENT --> Custom Tools section within Dashboard.
 
 --Installing the Extension--
 
-While you're free to manually install the webwizard extension (and the use of the app/code folder structure supports this), we recommend using Magento's PHP composer integration to install the extension (https://getcomposer.org/). All Magento 2 systems have a composer.json file, and this file is how developers and Magento Marketplace users get new packages in and out of their system.
+While you're free to manually install the webwizard extension (and the use of the app/code folder structure supports this -- pleaese download and upload webwizard.tar archive or simply clone this GitHub repostiory directly), we recommend using Magento's PHP composer integration to install the extension (https://getcomposer.org/). All Magento 2 systems have a composer.json file, and this file is how developers and Magento Marketplace users get new packages in and out of their system.
 
 Installing the extension is a X step process:
 1) Add this GitHub repository to your project as a composer repository
